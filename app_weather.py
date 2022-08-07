@@ -1,12 +1,21 @@
 import tkinter as tk
-
-
+import weather as weather
+import json
 def get_city_data():
     """@TODO: Get data from weather.py
     """
     frm_show_data.grid(row=1, column=0, padx=10)
     city_name = ent_city.get()
-    lbl_result["text"] = f"{city_name}"
+    weather.get_weather_data(city_name)
+
+    with open("weather.json","r") as read_file:
+        data = json.load(read_file)
+        print(type(data))
+
+    #temperature in celcius
+    temperature ="{:.2f}".format(data['main']['temp_min'] - 273.15)
+    print(temperature)
+    lbl_result["text"] = f"{temperature} \N{DEGREE CELSIUS}"
 
 # Set up the window
 window = tk.Tk()
