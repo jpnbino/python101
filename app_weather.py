@@ -1,6 +1,9 @@
 import tkinter as tk
 import weather as weather
 import json
+
+#@TODO: Add open API_KEY from directory navigation
+
 def get_city_data():
     """@TODO: Get data from weather.py
     """
